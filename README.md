@@ -43,7 +43,7 @@ To run this project, you will need to add the following values  to your `dev/con
 Create `dev` folder in your project root directory and create `config.json` file in this format
 
 
-```http
+```
 Production Mode
 ```
 
@@ -53,7 +53,7 @@ Production Mode
 | `discordClientId` | `YOUR_DISCORD_CLIENT_ID` |
 
 
-```http
+```
 Development Mode
 ```
 
@@ -65,15 +65,12 @@ Development Mode
 | `developerUserIds` | [`DISCORD_USER_ID_1, DISCORD_USER_ID_2`] |
 
 
-
-
 ## 🧠 How to get ``config.json`` tokens
 
 ### Step 1: Create a Discord Application
 
-
 Go to the [Discord Developer Portal](https://discord.com/developers/applications).
-
+```
 Click on the `New Application` button.
 
 Enter a name for your application (this will be your bot's name).
@@ -81,17 +78,19 @@ Enter a name for your application (this will be your bot's name).
 Go to the `Bot` tab on the left sidebar.
 
 Click on `Add Bot` to convert your application to a bot. Confirm the action.
+```
 
 ### Step 2: Obtain Token and URL
-
+```
 In the `Bot` tab, click `Reset Token` button, click on `Copy` to copy your bot token. This will be your `token`
 
 Save this token securely; you'll need it to authenticate your bot with the Discord API.
 
 Note your `discordClientId` from the "General Information" tab
+```
 
 ### Step 3: Invite Your Bot to a Server
-
+```
 In the `OAuth2` tab, scroll down to the `URL Generator` section.
 
 Check the `bot` scope and `applications.commands`.
@@ -101,9 +100,10 @@ Select required bot permissions (For now, select `Adminstrator` permission. Late
 Copy the generated URL.
 
 Paste the URL in your web browser to invite the bot to a server.
+```
 
 ### Step 4: Set Up Your Project
-
+```
 Clone or download this repository.
 
 Open a terminal and navigate to the project folder.
@@ -111,6 +111,8 @@ Open a terminal and navigate to the project folder.
 Run `npm i` to install dependencies.
 
 Create a `data/config.json` file in the project root directory and add your bot tokens
+```
+
 ## 💊 Documentation
 
 
