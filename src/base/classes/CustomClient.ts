@@ -4,6 +4,7 @@ import IConfig from "../interfaces/IConfig";
 import Handler from "./Handler";
 import Command from "./Command";
 import SubCommand from "./SubCommand";
+import { connect } from "mongoose";
 
 export default class CustomClient extends Client implements ICustomClient {
   config: IConfig;
@@ -18,7 +19,7 @@ export default class CustomClient extends Client implements ICustomClient {
       intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
+        GatewayIntentBits.MessageContent,
       ],
     });
     this.config = require(`../../../data/config.json`);
@@ -41,6 +42,12 @@ export default class CustomClient extends Client implements ICustomClient {
     this.login(
       this.developmentMode ? this.config.devToken : this.config.token
     ).catch((error) => console.log(error));
+
+    connect(
+      this.developmentMode ? this.config.devMongoUrl : this.config.mongoUrl
+    )
+      .then(() => console.log("✅Connected to MongoDB."))
+      .catch((error) => console.log(error));
   };
 
   loadHandlers = () => {
