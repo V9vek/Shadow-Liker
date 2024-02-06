@@ -2,7 +2,7 @@ import { Collection, Events, REST, Routes } from "discord.js";
 import CustomClient from "../../base/classes/CustomClient";
 import Event from "../../base/classes/Event";
 import Command from "../../base/classes/Command";
-import checkYoutubeForUploads from "../../automation/CheckYoutube";
+import checkYoutubeForUploads from "../../automation/CheckYoutubeForUploads";
 
 export default class Ready extends Event {
   constructor(client: CustomClient) {
@@ -54,7 +54,7 @@ export default class Ready extends Event {
 
     setInterval(() => {
       checkYoutubeForUploads(this.client);
-    }, 60_000);
+    }, 30_000);
   };
 
   private getJson = (commands: Collection<string, Command>) => {

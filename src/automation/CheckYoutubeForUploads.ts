@@ -15,8 +15,6 @@ export default async function checkYoutubeForUploads(client: CustomClient) {
         .parseURL(YOUTUBE_RSS_URL)
         .catch((error) => null);
 
-    //   console.log(feed);
-
       if (!feed?.items.length) continue;
 
       const latestVideo = feed.items[0];
@@ -47,7 +45,7 @@ export default async function checkYoutubeForUploads(client: CustomClient) {
             ytNotificationConfig.notificationChannelId
           ));
 
-        // if channel doees not exist
+        // if channel does not exist
         if (!notificationChannel) {
           await YoutubeNotificationConfig.findOneAndDelete({
             _id: ytNotificationConfig._id,
@@ -68,9 +66,11 @@ export default async function checkYoutubeForUploads(client: CustomClient) {
             ?.replace("{VIDEO_TITLE}", latestVideo.title!)
             ?.replace("{CHANNEL_NAME}", feed.title!)
             ?.replace("{VIDEO_NAME}", latestVideo.title!) ||
-          `New video upload by ${feed.title}\n${latestVideo.link}`;
+          `New video upload by ${feed.title} ${latestVideo.link}`;
 
-        (notificationChannel as TextChannel).send(customMessage);
+        const message = `Hey @everyone, **${feed.title}** posted new video 🎬\nGo check it out at ${latestVideo.link} `;
+
+        (notificationChannel as TextChannel).send(message);
       }
     }
   } catch (error) {

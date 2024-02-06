@@ -10,4 +10,9 @@ export default interface IConfig {
   devGuildId: string;
   developerUserIds: string[];
   devMongoUrl: string;
+
+  clientId: string;
+  clientSecret: string;
+  redirectUri: string;
+  scopes: string[];
 }

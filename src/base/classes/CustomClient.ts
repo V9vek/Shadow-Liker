@@ -20,6 +20,7 @@ export default class CustomClient extends Client implements ICustomClient {
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMessageReactions,
       ],
     });
     this.config = require(`../../../data/config.json`);
