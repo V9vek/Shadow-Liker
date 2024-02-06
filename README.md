@@ -1,7 +1,8 @@
 
 # Shadow Liker
 
-#### A Discord Bot for getting notification for the YouTube video uploads
+#### A Discord Bot which wil notify the user of the latest Youtube videos
+#### User can react with emojis ❤ to like the Youtube video directly
 
 ## 🚀 Run Locally
 
